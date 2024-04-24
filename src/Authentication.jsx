@@ -9,8 +9,10 @@ import SettingsAndProfile from "../src/pages/SettingsAndProfile/SettingsAndProfi
 import Exams from "../src/pages/Exams/Exams"
 import Features from "../src/pages/Features/Features"
 import AddTeacher from "../src/pages/Auth/AddTeacher/AddTeacher"
+import SingleTeacher from "../src/pages/SingleTeacher/SingleTeacher"
 import { Routes, Route } from 'react-router-dom'
-import NavBar from '../src/components/NavBar/NavBar'
+import NavBar from "../src/components/NavBar/NavBar"
+import Header from "../src/components/Header/Header"
 function Authentication() {
   const [teacher, setTeacher] = useState(JSON.parse(window.localStorage.getItem("teacher")) || [
     {
@@ -35,8 +37,9 @@ function Authentication() {
           <NavBar />
 
         </nav>
-
+        
         <Routes>
+      
           <Route path='/' element={<Dashboard teacher={teacher} setTeacher={setTeacher} />} />
           <Route path='/teachers' element={<Teachers teacher={teacher} setTeacher={setTeacher} />} />
           <Route path='/students' element={<Students teacher={teacher} setTeacher={setTeacher} />} />
@@ -45,6 +48,7 @@ function Authentication() {
           <Route path='/exams' element={<Exams teacher={teacher} setTeacher={setTeacher} />} />
           <Route path='/features' element={<Features teacher={teacher} setTeacher={setTeacher} />} />
           <Route path='/add' element={<AddTeacher teacher={teacher} setTeacher={setTeacher} />} />
+          <Route path='/singleteacher/:id' element={<SingleTeacher teacher={teacher} />} />
         </Routes>
 
       </div>

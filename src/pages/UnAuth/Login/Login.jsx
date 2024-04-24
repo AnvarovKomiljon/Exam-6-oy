@@ -24,17 +24,17 @@ function Login({setToken}) {
   return (
     <div className='w-full h-[100vh] bgbody pt-[40px]'>
     <Toaster position="top-center" reverseOrder={false}/>
-      <h2 className='text-center font-bold text-[22px] text-[gray-400]'>Welcome, Log into you account</h2>
+      <h2 className='text-center font-bold text-[36px] text-[#4F4F4F]'>Welcome, Log into you account</h2>
       <form onSubmit={loginSubmit} className='w-[475px] p-5 rounded-lg bg-white m-auto'>
-        <p className='text-center pt-[10px] text-[#6C6C6C] text-[18px]'>It is our great pleasure to have you on board! </p>
+        <p className='text-center pt-[10px] text-[#6C6C6C] text-[16px] w-[238px] ml-20'>It is our great pleasure to have you on board! </p>
         <label className='flex flex-col gap-[11px] mt-[50px]'>
           <input name='login' className='p-3 rounded-md border-[1px] border-slate-400 outline-none focus:shadow-md focus:shadow-[#2C86D2]' type="text" placeholder='Enter your login' />
         </label>
         <label className='flex flex-col gap-[11px] mt-[19px]'>
           <input name='password' className='p-3 rounded-md border-[1px] border-slate-400 outline-none focus:shadow-md focus:shadow-[#2C86D2]' type="password" placeholder='Enter your password' />
         </label>
-        <button className='w-full h-[44px] border-none bg-[#2C86D2] rounded-md mt-[35px] text-white'>Login</button>
-        <Link to={"/sign-up"} className='block text-center p-[10px] text-[#2C86D2] ' >Sign up</Link>
+        <button className='w-full h-[44px] border-none bg-[#2C86D2] rounded-md mt-[35px] text-white font-bold'>Login</button>
+        <Link to={"/sign-up"} className='block text-center p-[10px] text-[#2C86D2] font-bold ' >Sign up</Link>
       </form>
     </div>
   )

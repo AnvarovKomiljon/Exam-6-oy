@@ -16,7 +16,7 @@ function SignUp({setsignUpData}) {
     toast.success('Information update!')
     setTimeout(() => {
       setsignUpData(newdata);
-      navigate('/login')
+      navigate('/')
     }, 1000);
     window.localStorage.setItem("newToken", JSON.stringify(data))
   }

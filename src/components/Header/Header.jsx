@@ -1,10 +1,13 @@
 import React from 'react'
 import ring from '../../assets/Images/ring.svg'
 function Header() {
+const handleLogOut = () => {
+ 
+}
   return (
-    <div className='flex gap-5 items-center '>
-       <button> <img src={ring} alt="" /></button>
-        <button className='w-[100px] h-[40px] bg-[#2C86D2] rounded-md text-white'>Log Out</button>
+    <div className='flex gap-5 justify-end items-center mt-5 '>
+       <button> <img src={ring} alt="" width={24} height={24} /></button>
+        <button className='font-semibold' onClick={handleLogOut}>Log Out</button>
     </div>
   )
 }

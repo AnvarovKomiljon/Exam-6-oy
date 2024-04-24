@@ -1,9 +1,11 @@
 import React from 'react'
 import search from '../../assets/Images/search.svg'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
-
+import Header from '../../components/Header/Header'
 function Teachers({ teacher, setTeacher }) {
+  const navigate = useNavigate()
   const handleSearchTeacher = (evt) => {
     const value = evt.target.value
     const localTeacher = JSON.parse(window.localStorage.getItem("teacher"))
@@ -20,6 +22,8 @@ function Teachers({ teacher, setTeacher }) {
   }
   return (
     <div>
+        <Header/>
+      
       <Toaster position="top-center" reverseOrder={false} />
       <div className='flex w-[1056px] h-[60px] justify-between pl-[66px] pt-[20px]'>
         <h2>Teachers</h2>
@@ -32,31 +36,35 @@ function Teachers({ teacher, setTeacher }) {
         </label>
       </div>
 
-      <div className='p-5 items-center justify-center'>
+      <div className='p-5 items-center justify-center w-full'>
         <table className='w-full'>
           <thead>
             <tr>
-              <th className='bg-slate-300 p-2'>User Img</th>
+              <th className='bg-slate-300 p-2'>Avatar</th>  
               <th className='bg-slate-300 p-2'>Name</th>
-              <th className='bg-slate-300 p-2'>Subject</th>
+              <th className='bg-slate-300 p-2'> Subject</th>
               <th className='bg-slate-300 p-2'>Class</th>
-              <th className='bg-slate-300 p-2'>Email adrress</th>
+              <th className='bg-slate-300 p-2'>Email address</th>
               <th className='bg-slate-300 p-2'>Gender</th>
+              <th className='bg-slate-300 p-2'>Age</th>
               <th className='bg-slate-300 p-2'>Action</th>
+          
             </tr>
           </thead>
           <tbody key={teacher.id}>
             {teacher.map(item => (
-              <tr >
+              <tr id="teacher-row" className=' cursor-pointer ' key={item.id} >
                 <td className='p-2 text-center'><img src={item.avatarImg} alt="Student img" width={70} height={70} /></td>
                 <td className='p-2 text-center'>{item.name}</td>
-                <td className='p-2 text-center'>{item.email}</td>
                 <td className='p-2 text-center'>{item.subject}</td>
                 <td className='p-2 text-center'>{item.class}</td>
+                <td className='p-2 text-center'>{item.email}</td>
                 <td className='p-2 text-center'>{item.gender}</td>
+                <td className='p-2 text-center'>{item.age}</td>
                 <td className='p-2 text-center'>
                   <button id={item.id} onClick={handleDeleteTeacher} type='button' className='bg-red-500 text-white px-3 p-2 text-[13px] rounded-md'>Delete</button>
                 </td>
+                <td > <button className='bg-blue-500 text-white px-3 p-2 text-[13px] rounded-md' onClick={() => navigate(`/singleteacher/${item.id}`)}>More</button></td>
               </tr>
             ))}
           </tbody>
